@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 // CORS configuration
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://se-front-xi.vercel.app"],
     credentials: true,
   })
 );
