@@ -2,10 +2,6 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
 
-/**
- * Protect routes - Verify JWT token
- * Adds user object to request
- */
 exports.protect = asyncHandler(async (req, res, next) => {
   let token;
 
@@ -51,10 +47,6 @@ exports.protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-/**
- * Admin middleware - Check if user is admin
- * Must be used after protect middleware
- */
 exports.admin = (req, res, next) => {
   if (req.user && req.user.role === "admin") {
     next();
